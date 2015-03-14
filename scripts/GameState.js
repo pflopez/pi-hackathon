@@ -1,10 +1,12 @@
+	// TODO
+	// add difficulty levels
+	// add music
+	
+
 function GameState(){
 	var state = ['menu', 'playing', 'die'],
 	selectedState = 0,
 	level = 0;
-
-	// TODO
-	// difficulty
 	
 	function getLevel(){
 		return level;

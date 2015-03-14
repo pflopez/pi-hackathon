@@ -12,7 +12,8 @@ function GamePlay(){
     piIndex       = 0,
     currentNumber = 0,
     pi            = "314159265359",
-    goingUp 			= false;
+    goingUp 			= false,
+    timer;
 	    
 	function createBox( num) {
 	  var style = 'left:' + (30 * num) + 'px;';
@@ -41,6 +42,7 @@ function GamePlay(){
 
 	function addBox(){
 	  var isUp = false;
+	  console.log('adding box');
 	  
 	  if(pi[piIndex] == currentNumber -1 ){
     
@@ -55,18 +57,39 @@ function GamePlay(){
 	  currentNumber++;
 	}
 
+	function reset(){
+		posX          = 0,
+    posY          = 0,
+    piIndex       = 0,
+    currentNumber = 0,
+    goingUp 			= false,
+    window.clearInterval(timer);
+    $(window).off('keypress');
+    //remove everything
+    $('#canvas').html('');
+     // adding this class starts css movement of the screen.
+    $("#canvas").removeClass('started');
+     // adding this class starts css movement of the screen.
+    $("#canvas").addClass('dead');
+	}
+
 	function userGoesUp(){
 	  if(pi[piIndex] == currentNumber -1 ){
 	    //this triggers going up a level.
 	    goingUp = true;
 	    console.log('GOING UP!')   	
 	  }else{
-	  	console.log("die!");
-	  	//oh bad architecture thing, gameState is defined on main... oh well..
-	  	gameState.setDieScreen();
-
+	  	userDies();
 
 	  }	
+	}
+
+	function userDies(){
+			console.log("die!");
+	  	//oh bad architecture thing, gameState is defined on main... oh well..
+	  	gameState.setDieScreen();
+	  	
+	  	reset();
 	}
 
 
@@ -78,7 +101,8 @@ function GamePlay(){
 	});
 
 	function startGame(){
-		window.setInterval(addBox, 500);
+		$("#canvas").removeClass('dead');
+		timer = window.setInterval(addBox, 500);
 	}
 
 
