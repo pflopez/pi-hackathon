@@ -4,6 +4,8 @@
 
 
 
+// DEPENDENCIES: piCounter , gameState
+
 
 function GamePlay(){
 	var posX        = 0,
@@ -13,7 +15,8 @@ function GamePlay(){
     pi            = "314159265359",
     goingUp 			= false,
     maxSequenceSize=50,
-    timer;
+    timer,
+    piCounter;
 	    
 	function createBox( num) {
 	  var style = 'left:' + (30 * num) + 'px;';
@@ -90,7 +93,8 @@ function GamePlay(){
 	  if(pi[piIndex] == currentNumber -1 ){
 	    //this triggers going up a level.
 	    goingUp = true;
-	    console.log('GOING UP!')   	
+	    piCounter.levelUp(piIndex);
+	    console.log('GOING UP!');
 	  }else{
 	  //	userDies();
 
@@ -103,6 +107,7 @@ function GamePlay(){
 	  	gameState.setDieScreen();
 	  	
 	  	reset();
+	  	piCounter.reset();
 	}
 
 
@@ -115,6 +120,11 @@ function GamePlay(){
 	});
 
 	function startGame(){
+		if(!piCounter){
+			piCounter = new PiCounter();	
+		}
+		
+		piCounter.init();
 		$("#canvas").removeClass('dead');
 		timer = window.setInterval(addBox, 500);
 	}
