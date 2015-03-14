@@ -29,6 +29,12 @@ function GamePlay(){
 	    //reset going up
 	    goingUp = false;
 	  }
+	   console.log(currentNumber);
+	  console.log(pi[piIndex])
+	  if(currentNumber  > pi[piIndex]){
+		userDies();
+		
+	  }
 	  
 	  style += 'bottom:' +  ( 30 * posY )  + 'px;';
 		return '<div class="block" style="'+ style+ '">'+ currentNumber +'</div>';
@@ -65,6 +71,9 @@ function GamePlay(){
     		$("#canvas").addClass('started');
 
 	  }
+
+	 
+
 	  $('#canvas').append(createBox(posX));
 	  var left = $('#runner').css('left').replace('px','');
 
@@ -96,14 +105,14 @@ function GamePlay(){
 	    //this triggers going up a level.
 	    goingUp = true;
 	    piCounter.levelUp(piIndex);
-	    console.log('GOING UP!');
+	    
 	  }else{
 	  	userDies();
 	  }	
 	}
 
 	function userDies(){
-			console.log("die!");
+
 	  	//oh bad architecture thing, gameState is defined on main... oh well..
 	  	gameState.setDieScreen();
 	  	removeRunner();
@@ -122,6 +131,7 @@ function GamePlay(){
 	});
 
 	function startGame(){
+		$('#canvas').html('');
 		if(!piCounter){
 			piCounter = new PiCounter();	
 		}
@@ -136,7 +146,6 @@ function GamePlay(){
 	function canvasCleanup() {
 		var currLength = $('#canvas div').length,
 		deleteSize = '10';
-		console.log("canvas size " + currLength );
 		if (currLength > maxSequenceSize) {
 			$('#canvas div:lt(' + deleteSize + ')').remove();
 			console.log("Cleaning canvas");
