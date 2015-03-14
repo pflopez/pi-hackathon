@@ -102,6 +102,9 @@ function GamePlay(){
 
 	function userGoesUp(){
 	  if(pi[piIndex] == currentNumber -1 ){
+	  	if (piIndex === pi.length-1) {
+	  		userWins();
+	  	}
 	    //this triggers going up a level.
 	    goingUp = true;
 	    piCounter.levelUp(piIndex);
@@ -119,6 +122,13 @@ function GamePlay(){
 	  	reset();
 	  	piCounter.reset();
 	  	$("#runnercanvas").html('');
+	}
+	function userWins(){
+		console.log("USER WINS!!!!!!");
+	  	gameState.setWinScreen();
+	  	removeRunner();
+	  	reset();
+	  	piCounter.reset();
 	}
 
 
