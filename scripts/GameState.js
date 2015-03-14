@@ -18,10 +18,26 @@ function GameState(){
 		selectedState = state;
 	}
 
+	function getMenuScreen() {
+		$('.screen').addClass('hidden');
+		$('#intro').removeClass('hidden');
+		//set state to menu
+		changeState(0);
+	}
+
+	function getGameScreen(){
+		$('.screen').addClass('hidden');
+		$('#canvas').removeClass('hidden');
+		//set state to menu
+		changeState(1);
+	}
+
 	return {
 		getLevel: getLevel,
 		getState: getState,
-		changeState: changeState
+		changeState: changeState,
+		getMenuScreen: getMenuScreen,
+		getGameScreen: getGameScreen
 
 	}
 }

@@ -41,10 +41,15 @@ function GamePlay(){
 	  posX++;
 	  currentNumber++;
 	}
+
+	function startGame(){
+		window.setInterval(addBox, 500);
+	}
 	
 	return {
 		createBox: createBox,
 		drawBoxes: drawBoxes,
-		addBox: addBox
+		addBox: addBox,
+		startGame: startGame
 	}
 }
