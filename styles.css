@@ -9,13 +9,17 @@
   line-height: 30px;
 }
 
-#runnercanvas {
-  
+#runner {
   position: absolute;
-  width: 253px;
-  height: 212px;
-  left: 50px;
-  top: 60%;
+  bottom: 30px;
+  left: -64px;
+  width: 80px;
+}
+
+#runner img {
+  width: 100%;
+  height: 100%;
+
 }
 
 #canvas {

@@ -39,14 +39,10 @@ function GamePlay(){
 	};
 
 	function runnerJumps() {
-		var runner = $("#runnercanvas");
-		var upPos = {top: '45%'};
-		runner.css(upPos);
-
-		setTimeout(function(){
-			upPos = {top: '60%'};
-			runner.css(upPos);
-    	}, 300);
+		var runner = $("#runner");
+		var botm = runner.css('bottom');
+		var upPos = {bottom: 30 + (30 *  posY) + 30 + 'px' };
+			
 		runner.css(upPos);
 	};
 
@@ -64,10 +60,13 @@ function GamePlay(){
 	  if(pi[piIndex] == currentNumber -1 ){
     		// adding this class starts css movement of the screen.
     		$("#canvas").addClass('started');
-    		$("#runnercanvas").append(createRunner(posX, posY));
+    	
 	  }
 	  $('#canvas').append(createBox(posX));
+	  var left = $('#runner').css('left').replace('px','');
 
+		$('#runner').css('left', parseInt(left)  + 31 + 'px');
+		
 	  canvasCleanup();
 	  posX++;
 	  currentNumber++;
@@ -97,7 +96,6 @@ function GamePlay(){
 	    console.log('GOING UP!');
 	  }else{
 	  	userDies();
-
 	  }	
 	}
 
@@ -108,6 +106,7 @@ function GamePlay(){
 	  	
 	  	reset();
 	  	piCounter.reset();
+	  	$("#runnercanvas").html('');
 	}
 
 
@@ -127,6 +126,7 @@ function GamePlay(){
 		piCounter.init();
 		$("#canvas").removeClass('dead');
 		timer = window.setInterval(addBox, 500);
+		$("#canvas").append(createRunner(posX, posY));
 	}
 
 	function canvasCleanup() {
