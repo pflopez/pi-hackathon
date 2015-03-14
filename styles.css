@@ -36,6 +36,18 @@ border: 2px solid red;
   top: 400px;
 }
 
+#canvas.dead {
+  transition: all 0 linear;
+}
+
+.value-holder {
+  color: #DDD;
+}
+
+.value-holder span {
+  color: black;
+}
+
 .hidden {
 	display: none;
 }
