@@ -7,6 +7,7 @@ $(function() {
   //on start show menu window.
   gameState.setMenuScreen();
 
+
   $('.startgame').click(function(){
     // Create a new gameplay
     var gamePlay  = new GamePlay();
@@ -16,4 +17,19 @@ $(function() {
     gamePlay.startGame();
     
   });
+  
+
+  $('.startgame-nohelp').click(function(){
+    // Create a new gameplay
+    var gamePlay = new GamePlay();
+    //get game screen
+    gameState.setGameScreen();
+    //start game
+    gamePlay.startGame();
+
+    $("#pi-counter").addClass("nohelp");
+    
+  });
+
+  
 });

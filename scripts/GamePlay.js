@@ -96,7 +96,7 @@ function GamePlay(){
 	    piCounter.levelUp(piIndex);
 	    console.log('GOING UP!');
 	  }else{
-	  //	userDies();
+	  	userDies();
 
 	  }	
 	}

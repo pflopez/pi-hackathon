@@ -15,17 +15,22 @@ function PiCounter(){
 		var num = pi.replace(".","").split(''),
 		string ='',
 		i;
-
-		for(i = 0 ; i < num.length ; i++){
-			if(i == pos){
-				//highlight
-				string += '<span>'+ num[i] + '</span>';
-			}else{
-				//dont highlight.
-				string +=  num[i] ;
+		if(pos != null){
+			for(i = 0 ; i < num.length ; i++){
+				if(i <= pos){
+					//highlight
+					string += '<span>'+ num[i] + '</span>';
+				}else{
+					//dont highlight.
+					string +=  num[i] ;
+				}
+				if(i == 0){
+					string += '<span>.</span>';
+				}
 			}
+		}else{
+			string = pi;
 		}
-
 		return  '<h1 class="value-holder">' + string + '</h1>';
 	}
 

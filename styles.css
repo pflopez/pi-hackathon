@@ -48,6 +48,14 @@
   color: black;
 }
 
+.nohelp .value-holder{
+  color:#FFF;
+}
+
+.nohelp .value-holder span{
+  color: black;
+}
+
 .hidden {
 	display: none;
 }
