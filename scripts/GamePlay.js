@@ -35,13 +35,8 @@ function GamePlay(){
 	  var style = 'left:' + (30 * x) + 'px;';
 	  
 	  style += 'bottom:' +  ( 30 * y )  + 'px;';
-		return '<div id="runner">RUNNER</div>';
+		return '<div id="runner">RUNNING...<img src="http://www.clipartbest.com/cliparts/pc5/78o/pc578oEKi.gif"/></div>';
 	};
-	function moveRunner(x){
-		console.log('moving to '+(30*x));
-		var pos = {left: (30*x)+'px'};
-		$("#runner").css(pos);
-	}
 
 	function drawBoxes () {
 	  var content = []  ;

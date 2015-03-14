@@ -12,10 +12,10 @@
 #runnercanvas {
 border: 2px solid red;
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 253px;
+  height: 212px;
   left: 50px;
-  top: 80%;
+  top: 60%;
 }
 
 #canvas {
