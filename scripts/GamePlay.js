@@ -12,7 +12,7 @@ function GamePlay(){
     posY          = 0,
     piIndex       = 0,
     currentNumber = 0,
-    pi            =  "314" ,
+    pi            = "314159265359", // "314" ,
     goingUp 			= false,
     maxSequenceSize= 50,
     timer,
