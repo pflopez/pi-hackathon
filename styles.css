@@ -26,3 +26,7 @@
   left: -3000px;
   top: 400px;
 }
+
+.hidden {
+	display: none;
+}
