@@ -4,7 +4,7 @@
 	
 
 function GameState(){
-	var state = ['menu', 'playing', 'die'],
+	var state = ['menu', 'playing', 'die', 'won'],
 	selectedState = 0,
 	level = 0;
 	
@@ -40,6 +40,12 @@ function GameState(){
 		//set state to menu
 		changeState(0);
 	}
+	function setWinScreen(){
+		$('.screen').addClass('hidden');
+		$('#win').removeClass('hidden');
+		//set state to menu
+		changeState(3);
+	}
 
 	return {
 		getLevel: getLevel,
@@ -47,8 +53,8 @@ function GameState(){
 		changeState: changeState,
 		setMenuScreen: setMenuScreen,
 		setGameScreen: setGameScreen,
-		setDieScreen: setDieScreen
-
+		setDieScreen: setDieScreen,
+		setWinScreen: setWinScreen
 	}
 }
 
