@@ -9,6 +9,15 @@
   line-height: 30px;
 }
 
+#runnercanvas {
+border: 2px solid red;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 50px;
+  top: 80%;
+}
+
 #canvas {
   position: absolute;
   width: 100%;

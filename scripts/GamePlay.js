@@ -30,7 +30,18 @@ function GamePlay(){
 	  style += 'bottom:' +  ( 30 * posY )  + 'px;';
 		return '<div class="block" style="'+ style+ '">'+ currentNumber +'</div>';
 	};
-
+	
+	function createRunner( x,y) {
+	  var style = 'left:' + (30 * x) + 'px;';
+	  
+	  style += 'bottom:' +  ( 30 * y )  + 'px;';
+		return '<div id="runner">RUNNER</div>';
+	};
+	function moveRunner(x){
+		console.log('moving to '+(30*x));
+		var pos = {left: (30*x)+'px'};
+		$("#runner").css(pos);
+	}
 
 	function drawBoxes () {
 	  var content = []  ;
@@ -43,11 +54,9 @@ function GamePlay(){
 	function addBox(){
 	  var isUp = false;
 	  if(pi[piIndex] == currentNumber -1 ){
-    
-    // adding this class starts css movement of the screen.
-    $("#canvas").addClass('started');
-
-    	
+    		// adding this class starts css movement of the screen.
+    		$("#canvas").addClass('started');
+    		$("#runnercanvas").append(createRunner(posX, posY));
 	  }
 	  $('#canvas').append(createBox(posX));
 
