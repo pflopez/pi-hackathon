@@ -1,6 +1,5 @@
 // TODO!!!
 
-// - Remove boxes as the game progresses
 // - Remove timer(set interval) when you loose
 
 
@@ -13,6 +12,7 @@ function GamePlay(){
     currentNumber = 0,
     pi            = "314159265359",
     goingUp 			= false,
+    maxSequenceSize=50,
     timer;
 	    
 	function createBox( num) {
@@ -42,8 +42,6 @@ function GamePlay(){
 
 	function addBox(){
 	  var isUp = false;
-	  console.log('adding box');
-	  
 	  if(pi[piIndex] == currentNumber -1 ){
     
     // adding this class starts css movement of the screen.
@@ -53,6 +51,7 @@ function GamePlay(){
 	  }
 	  $('#canvas').append(createBox(posX));
 
+	  canvasCleanup();
 	  posX++;
 	  currentNumber++;
 	}
@@ -105,9 +104,16 @@ function GamePlay(){
 		timer = window.setInterval(addBox, 500);
 	}
 
+	function canvasCleanup() {
+		var currLength = $('#canvas div').length,
+		deleteSize = '10';
+		console.log("canvas size " + currLength );
+		if (currLength > maxSequenceSize) {
+			$('#canvas div:lt(' + deleteSize + ')').remove();
+			console.log("Cleaning canvas");
+		}
+	}
 
-
-	
 	return {
 		createBox: createBox,
 		drawBoxes: drawBoxes,
