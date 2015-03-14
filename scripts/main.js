@@ -9,5 +9,5 @@ $(function() {
   
   window.setInterval(gamePlay.addBox, 500);
   
-//  drawBoxes();
+
 });
