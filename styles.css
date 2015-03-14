@@ -37,7 +37,7 @@
 
 #canvas.started {
   left: -3000px;
-  top: 400px;
+  /*top: 400px;*/
 }
 
 #canvas.dead {

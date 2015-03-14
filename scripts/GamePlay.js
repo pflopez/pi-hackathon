@@ -37,6 +37,9 @@ function GamePlay(){
 	function createRunner( x,y) {
 	  	return '<div id="runner"><img src="http://www.clipartbest.com/cliparts/pc5/78o/pc578oEKi.gif"/></div>';
 	};
+	function removeRunner() {
+		$("#runnercanvas div").remove();
+	}
 
 	function runnerJumps() {
 		var runner = $("#runner");
@@ -60,7 +63,7 @@ function GamePlay(){
 	  if(pi[piIndex] == currentNumber -1 ){
     		// adding this class starts css movement of the screen.
     		$("#canvas").addClass('started');
-    	
+
 	  }
 	  $('#canvas').append(createBox(posX));
 	  var left = $('#runner').css('left').replace('px','');
@@ -103,7 +106,7 @@ function GamePlay(){
 			console.log("die!");
 	  	//oh bad architecture thing, gameState is defined on main... oh well..
 	  	gameState.setDieScreen();
-	  	
+	  	removeRunner();
 	  	reset();
 	  	piCounter.reset();
 	  	$("#runnercanvas").html('');
@@ -126,7 +129,11 @@ function GamePlay(){
 		piCounter.init();
 		$("#canvas").removeClass('dead');
 		timer = window.setInterval(addBox, 500);
+<<<<<<< HEAD
 		$("#canvas").append(createRunner(posX, posY));
+=======
+		$("#runnercanvas").append(createRunner(posX, posY));
+>>>>>>> a09d3261b019414cb65afaaf8adde407d7537fa5
 	}
 
 	function canvasCleanup() {
