@@ -129,11 +129,8 @@ function GamePlay(){
 		piCounter.init();
 		$("#canvas").removeClass('dead');
 		timer = window.setInterval(addBox, 500);
-<<<<<<< HEAD
+
 		$("#canvas").append(createRunner(posX, posY));
-=======
-		$("#runnercanvas").append(createRunner(posX, posY));
->>>>>>> a09d3261b019414cb65afaaf8adde407d7537fa5
 	}
 
 	function canvasCleanup() {
