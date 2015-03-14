@@ -32,11 +32,21 @@ function GamePlay(){
 	};
 	
 	function createRunner( x,y) {
-	  var style = 'left:' + (30 * x) + 'px;';
-	  
-	  style += 'bottom:' +  ( 30 * y )  + 'px;';
-		return '<div id="runner">RUNNING...<img src="http://www.clipartbest.com/cliparts/pc5/78o/pc578oEKi.gif"/></div>';
+	  	return '<div id="runner"><img src="http://www.clipartbest.com/cliparts/pc5/78o/pc578oEKi.gif"/></div>';
 	};
+
+	function runnerJumps() {
+		var runner = $("#runnercanvas");
+		var upPos = {top: '45%'};
+		runner.css(upPos);
+
+		setTimeout(function(){
+			upPos = {top: '60%'};
+			runner.css(upPos);
+    	}, 300);
+		runner.css(upPos);
+	};
+
 
 	function drawBoxes () {
 	  var content = []  ;
@@ -82,7 +92,7 @@ function GamePlay(){
 	    goingUp = true;
 	    console.log('GOING UP!')   	
 	  }else{
-	  	userDies();
+	  //	userDies();
 
 	  }	
 	}
@@ -99,6 +109,7 @@ function GamePlay(){
 	// Listen to space tap
 	$(window).keypress(function(e) {
 	  if (e.keyCode == 0 || e.keyCode == 32) {
+	  	runnerJumps();
 	    userGoesUp();
 	  }
 	});
