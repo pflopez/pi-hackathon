@@ -12,9 +12,9 @@ function GamePlay(){
     posY          = 0,
     piIndex       = 0,
     currentNumber = 0,
-    pi            = "314159265359",
+    pi            =  "314" ,
     goingUp 			= false,
-    maxSequenceSize=50,
+    maxSequenceSize= 50,
     timer,
     piCounter;
 	    
@@ -102,7 +102,7 @@ function GamePlay(){
 
 	function userGoesUp(){
 	  if(pi[piIndex] == currentNumber -1 ){
-	  	if (piIndex === pi.length-1) {
+	  	if (piIndex === pi.length - 1) {
 	  		userWins();
 	  	}
 	    //this triggers going up a level.
@@ -128,7 +128,7 @@ function GamePlay(){
 	  	gameState.setWinScreen();
 	  	removeRunner();
 	  	reset();
-	  	piCounter.reset();
+	  	$('#pi-counter').addClass('hidden');
 	}
 
 
@@ -142,10 +142,12 @@ function GamePlay(){
 
 	function startGame(){
 		$('#canvas').html('');
+
 		if(!piCounter){
 			piCounter = new PiCounter();	
+
 		}
-		
+		$('#pi-counter').removeClass('hidden');
 		piCounter.init();
 		$("#canvas").removeClass('dead');
 		timer = window.setInterval(addBox, 500);
